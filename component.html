@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="textarea" id="_textarea">
+        <table>
+            <tr>
+                <td><input type="button" value="a" disabled></td>
+                <td><input type="button" value="ā" id='_a' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="i" disabled></td>
+                <td><input type="button" value="ī" id='_i' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="u" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="ū" id='_u' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="r̥" id='_r' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="e" disabled></td>
+                <td><input type="button" value="ē" id='_e' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ai" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="o" disabled></td>
+                <td><input type="button" value="ō" id='_o' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ou" disabled></td>
+                <td><input type="button" value="ṁ" id='_m' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ḥ" id='_h' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="k" disabled></td>
+                <td><input type="button" value="kh" disabled></td>
+                <td><input type="button" value="g" disabled></td>
+                <td><input type="button" value="gh" disabled></td>
+                <td><input type="button" value="ṅ" id='_ng' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="c" disabled></td>
+                <td><input type="button" value="ch" disabled></td>
+                <td><input type="button" value="j" disabled></td>
+                <td><input type="button" value="jh" disabled></td>
+                <td><input type="button" value="ñ" id='_ny' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="ṭ" id='_t' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ṭh" disabled></td>
+                <td><input type="button" value="ḍ" id='_d' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ḍh" disabled></td>
+                <td><input type="button" value="ṇ" id='_N' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="t" disabled></td>
+                <td><input type="button" value="th" disabled></td>
+                <td><input type="button" value="d" disabled></td>
+                <td><input type="button" value="dh" disabled></td>
+                <td><input type="button" value="n" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="p" disabled></td>
+                <td><input type="button" value="ph" disabled></td>
+                <td><input type="button" value="b" disabled></td>
+                <td><input type="button" value="bh" disabled></td>
+                <td><input type="button" value="m" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="ṟ" id='_R' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ḻ" id='_l' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ś" id='_sh' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+                <td><input type="button" value="ṣ" id='_Sh' onclick="insertCharacterInto(this.id, '_textarea')"></td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        function insertCharacterInto(characterId, inputId) {
+            var charToInsert = document.getElementById(characterId).value;
+            var curPos = document.getElementById(inputId).selectionStart;
+            var text = document.getElementById(inputId).value;
+            document.getElementById(inputId).value = text.slice(0, curPos) + charToInsert + text.slice(curPos);
+        }
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+</body>
+</html>
