@@ -9,22 +9,23 @@
 </head>
 <body>
     <form>
-        <input type="textarea" id="_textarea1" onfocus="registerthis(this.id)">
+        <textarea id="_textarea1" spellcheck="false" cols=60 rows=20 onfocus="registerthis(this.id)"></textarea>
 
-        <input type="textarea" id="_textarea2" onfocus="registerthis(this.id)">
+        <textarea id="_textarea2" spellcheck="false" cols=60 rows=20 onfocus="registerthis(this.id)"></textarea>
     </form>
 
     <indic-text-input></indic-text-input>
+    <input type="button" value="Uppercase" id="_toupper" onclick="toUpper()"></button>
     <script type="text/javascript">
-        var shadowRoot
-        var textInputToUse = null
+        var shadowRoot;
+        var textInputToUse = null;
 
         class IndicTextInput extends HTMLElement {
             constructor() {
-                super()
+                super();
 
-                this.attachShadow({mode: 'open'})
-                shadowRoot = this.shadowRoot
+                this.attachShadow({mode: 'open'});
+                shadowRoot = this.shadowRoot;
                 const char_map = {
                     0: {'a': 'disabled', 'ā': '_a', 'i': 'disabled', 'ī': '_i', 'u': 'disabled'},
                     1: {'ū': '_u', 'r̥': '_r', 'e': 'disabled', 'ē': '_e', 'ai': 'disabled'},
@@ -37,19 +38,19 @@
                     8: {'ṟ': '_R', 'ḷ': '_l', 'ḻ': '_L', 'ś': '_sh', 'ṣ': '_Sh'}
                 }
 
-                const table = document.createElement("table")
+                const table = document.createElement("table");
                 for(var key in char_map) {
                     const row = document.createElement("tr")
-                    table.appendChild(row)
+                    table.appendChild(row);
                     for(var elem in char_map[key]) {
                         const cell = document.createElement("td")
                         if(char_map[key][elem] == 'disabled') {
-                            cell.innerHTML = "<input type='button' value='" + elem +"' disabled>"
+                            cell.innerHTML = "<input type='button' value='" + elem +"' disabled>";
                         }
                         else {
-                            cell.innerHTML = "<input type='button' value='" + elem + "' id='" + char_map[key][elem] + "' onclick=\"insertCharacterInto(this.id)\">"
+                            cell.innerHTML = "<input type='button' value='" + elem + "' id='" + char_map[key][elem] + "' onclick=\"insertCharacterInto(this.id)\">";
                         }
-                        row.appendChild(cell)
+                        row.appendChild(cell);
                     } 
                 }
 
@@ -60,7 +61,7 @@
         customElements.define("indic-text-input", IndicTextInput)
 
         function insertCharacterInto(characterId) {
-            console.log(characterId, textInputToUse)
+            console.log(characterId, textInputToUse);
             var charToInsert = shadowRoot.getElementById(characterId).value;
             var curPos = document.getElementById(textInputToUse).selectionStart;
             var text = document.getElementById(textInputToUse).value;
@@ -69,6 +70,14 @@
 
         function registerthis(inputId) {
             textInputToUse = inputId
+        }
+
+        function toUpper() {
+            var curPos = document.getElementById(textInputToUse).selectionStart;
+            var curEnd = document.getElementById(textInputToUse).selectionEnd;
+            // console.log(curPos, curEnd);
+            var text = document.getElementById(textInputToUse).value;
+            document.getElementById(textInputToUse).value = text.slice(0, curPos) + text.slice(curPos, curEnd).toUpperCase() + text.slice(curEnd);
         }
     </script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
