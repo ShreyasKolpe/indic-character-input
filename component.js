@@ -1,5 +1,6 @@
 var shadowRoot;
 var textInputToUse = null;
+var keyboardElem;
 
 class IndicTextInput extends HTMLElement {
     constructor() {
@@ -35,8 +36,16 @@ class IndicTextInput extends HTMLElement {
             } 
         }
 
+        const row = document.createElement("tr")
+        table.appendChild(row);
+        const cell = document.createElement("td")
+        cell.setAttribute("colspan", 5)
+        cell.innerHTML = "<input type='button' value='Uppercase' id='_toupper' onclick='toUpper()'>"
+        row.appendChild(cell);
+
         this.shadowRoot.append(table);
-        // this.hidden = true
+        this.hidden = true
+        keyboardElem = this
     }
 }
 customElements.define("indic-text-input", IndicTextInput)
@@ -54,6 +63,7 @@ function insertCharacterInto(characterId) {
 
 function registerthis(inputId) {
     textInputToUse = inputId
+    keyboardElem.hidden = false
 }
 
 function toUpper() {
