@@ -18,6 +18,7 @@ class IndicTextInput extends HTMLElement {
             6: {'t': 'disabled', 'th': 'disabled', 'd': 'disabled', 'dh': 'disabled', 'n': 'disabled'},
             7: {'p': 'disabled', 'ph': 'disabled', 'b': 'disabled', 'bh': 'disabled', 'm': 'disabled'},
             8: {'ṟ': '_R', 'ḷ': '_l', 'ḻ': '_L', 'ś': '_sh', 'ṣ': '_Sh'}
+            9: {'½': '_half', '¼': '_quarter'}
         }
 
         const table = document.createElement("table");
