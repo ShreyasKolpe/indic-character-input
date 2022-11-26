@@ -17,7 +17,7 @@ class IndicTextInput extends HTMLElement {
             5: {'ṭ': '_t', 'ṭh': 'disabled', 'ḍ': '_d', 'ḍh': 'disabled', 'ṇ': '_N'},
             6: {'t': 'disabled', 'th': 'disabled', 'd': 'disabled', 'dh': 'disabled', 'n': 'disabled'},
             7: {'p': 'disabled', 'ph': 'disabled', 'b': 'disabled', 'bh': 'disabled', 'm': 'disabled'},
-            8: {'ṟ': '_R', 'ḷ': '_l', 'ḻ': '_L', 'ś': '_sh', 'ṣ': '_Sh'}
+            8: {'ṟ': '_R', 'ḷ': '_l', 'ḻ': '_L', 'ś': '_sh', 'ṣ': '_Sh'},
             9: {'½': '_half', '¼': '_quarter'}
         }
 
